@@ -5,20 +5,25 @@
   {% block title %}<title>Media Agency</title>{% endblock %}
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
   {% load static %}
   <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+  
 </head>
 
 <body>
+<div class="row">
+  <div class="col-sm-2">
   {% block sidebar %}
     {% include "includes/sidebar.html" %}
   {% endblock %}
-  {% block content %}
-    
-  {% endblock %}
+  </div>
+  <div class="col-sm-8">
+    {% block content %}{% endblock %}
+  </div>
   {% block pagination %}
     
   {% endblock %}
-
+</div>
 </body>
