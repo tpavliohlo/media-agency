@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Media Agency Home</h1>
+  <p>Welcome to the Media Agency Home Page</p>
+  <h3>Media agency Content:</h3>
+  <ul>
+    <li>Number of Titles: {{ num_topics }}</li>
+    <li>Number of Redactors: {{ num_redactors }}</li>
+    <li>Number of Newspapers: {{ num_newspapers }}</li>
+  </ul>
+{% endblock %}
