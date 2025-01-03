@@ -9,7 +9,6 @@ class Topic(models.Model):
 class Redactor(AbstractUser):
     years_of_experience = models.IntegerField()
 
-
 class Newspaper(models.Model):
     title = models.CharField(max_length=100)
     content = models.TextField()
