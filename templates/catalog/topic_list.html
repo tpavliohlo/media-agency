@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Topic list:</h1>
+  <ul>
+  {% for topic in topic_list %}
+    <li>
+      {{ topic.name }}
+    </li>
+    {% empty %}
+    <span>No topics found!</span>
+  {% endfor %}
+  </ul>
+{% endblock %}
