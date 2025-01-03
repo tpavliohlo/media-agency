@@ -16,4 +16,4 @@ def index(request):
         'num_topics': num_topics,
         'num_newspapers': num_newspapers,
     }
-    return render(request, "index.html", context=context)
+    return render(request, "catalog/index.html", context=context)
