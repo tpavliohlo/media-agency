@@ -7,7 +7,7 @@
       Create
     </a>
   </h1>
-  
+
   {% if newspaper_list %}
   	<table class="table">
     <tr>
@@ -17,7 +17,7 @@
       <th>Update</th>
       <th>Delete</th>
     </tr>
-    
+
     {% for newspaper in newspaper_list %}
       <tr>
         <td>{{ newspaper.id }}</td>
@@ -37,7 +37,7 @@
       </tr>
     {% endfor %}
     </table>
-    
+
     {% else %}
       <p>No newspapers found.</p>
     {% endif %}
