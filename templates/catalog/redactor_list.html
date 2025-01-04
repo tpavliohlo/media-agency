@@ -1,17 +1,29 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>Redactor list:</h1>
-  <ul>
+  <h1>List of redactors <a href="{% url 'catalog:redactor-create' %}" class="btn btn-primary link-to-page">Create</a>
+  </h1>
+  
+  {% if redactor_list %}
+  <table class="table">
+  <tr>u
+    <th>ID</th>
+    <th>Username</th>
+    <th>First name</th>
+    <th>Last name</th>
+    <th>Years of experience</th>
+  </tr>
   {% for redactor in redactor_list %}
-    <li>
-       {{ redactor.first_name }} {{ redactor.last_name }} 
-      <a href="{{ redactor.id }}">
-        ({{ redactor.username }})
-      </a>
-    </li>
-  {% empty %}
-  <span>No redactors found!</span>
+    <tr>
+      <td>{{ redactor.id }}</td>
+      <td><a href="{{ redactor.get_absolute_url }}">{{ redactor.username }} {% if user == redactor %} (Me) {% endif %}</a></td>
+      <td>{{ redactor.first_name }}</td>
+      <td>{{ redactor.last_name }}</td>
+      <td>{{ redactor.years_of_experience }}</td>
+    </tr>
   {% endfor %}
-  </ul>
+  </table>
+  {% else %}
+  <p>No redactors found.</p>
+  {% endif %}
 {% endblock %}
