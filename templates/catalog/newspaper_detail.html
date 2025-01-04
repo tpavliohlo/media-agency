@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Newspaper info</h1>
+  <div>Title: {{ newspaper.title }}</div>
+  <div>Content: {{ newspaper.content.all }}</div>
+  <div>Date: {{ newspaper.published_date }}</div>
+  <div>Topic: {{ newspaper.topic.name }}</div>
+  <div>Publishers: {{ newspaper.publishers.select_related }}:
+    <ul>
+      {% for redactor in newspaper.redactor.all %}
+      <li>
+          <a href="{% url "catalog:redactor-detail" redactor.id %}">
+            {{ redactor.first_name }} {{ redactor.last_name }}
+          </a>
+        </li>
+      {% empty %}
+        <div>NO REDACTOR</div>
+      {% endfor %}
+    </ul>
+  </div>
+{% endblock %}
