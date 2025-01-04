@@ -1,14 +1,37 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>Topic list:</h1>
-  <ul>
-  {% for topic in topic_list %}
-    <li>
-      {{ topic.name }}
-    </li>
-    {% empty %}
-    <span>No topics found!</span>
-  {% endfor %}
-  </ul>
+  <h1>
+    List of Topics:
+    <a href="{% url 'catalog:topic-create' %}" class="btn btn-primary link-to-page">
+    Create
+    </a>
+  </h1>
+  
+  {% if topic_list %}
+    <table class="table">
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Update</th>
+        <th>Delete</th>
+      </tr>
+      
+    {% for topic in topic_list %}
+      <tr>
+        <td>{{ topic.id }}</td>
+        <td>{{ topic.name }}</td> 
+        <td><a href="{% url 'catalog:topic-update' topic.id %}">Update</a></td>
+        <td><a style="color: red"
+               href="{% url 'catalog:topic-delete' topic.id %}">
+          Delete
+            </a>
+        </td>
+      </tr>
+    {% endfor %}
+    </table>
+
+  {% else %}
+    <p>There are no topics.</p>
+  {% endif %}
 {% endblock %}
