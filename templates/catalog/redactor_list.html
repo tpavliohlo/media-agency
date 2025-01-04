@@ -12,6 +12,7 @@
     <th>First name</th>
     <th>Last name</th>
     <th>Years of experience</th>
+    <th>Delete</th>
   </tr>
   {% for redactor in redactor_list %}
     <tr>
@@ -20,6 +21,10 @@
       <td>{{ redactor.first_name }}</td>
       <td>{{ redactor.last_name }}</td>
       <td>{{ redactor.years_of_experience }}</td>
+      <td><a style="color: red"
+              href="{% url 'catalog:redactor-delete' pk=redactor.id %}">
+            Delete
+          </a></td>
     </tr>
   {% endfor %}
   </table>
