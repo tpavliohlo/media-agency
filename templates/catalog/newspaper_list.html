@@ -1,17 +1,43 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>Newspaper list:</h1>
-  <ul>
-  {% for newspaper in newspaper_list %}
-    <li>
-      {{ newspaper.model }}
-      <a href="{{ newspaper.id }}">
-        {{ newspaper.id }} {{ newspaper.title }}
-      </a>
-    </li>
-    {% empty %}
-    <span>No newspapers found!</span>
-  {% endfor %}
-  </ul>
+  <h1>
+    List of newspapers:
+    <a href="{% url 'catalog:newspaper-create' %}" class="btn btn-primary link-to-page">
+      Create
+    </a>
+  </h1>
+  
+  {% if newspaper_list %}
+  	<table class="table">
+    <tr>
+      <th>ID</th>
+      <th>Title</th>
+      <th>Published date</th>
+      <th>Update</th>
+      <th>Delete</th>
+    </tr>
+    
+    {% for newspaper in newspaper_list %}
+      <tr>
+        <td>{{ newspaper.id }}</td>
+        <td>{{ newspaper.title }}</td>
+        <td>{{ newspaper.published_date }}</td>
+        <td>
+          <a href="{% url 'catalog:newspaper-update' pk=newspaper.id %}">
+            Update
+          </a>
+        </td>
+        <td>
+          <a href="{% url 'catalog:newspaper-delete' pk=newspaper.id %}">
+            Delete
+          </a>
+        </td>
+      </tr>
+    {% endfor %}
+    </table>
+    
+    {% else %}
+      <p>No newspapers found.</p>
+    {% endif %}
 {% endblock %}

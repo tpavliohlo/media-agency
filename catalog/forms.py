@@ -7,7 +7,7 @@ from catalog.models import Redactor
 
 class NewspaperForm(forms.ModelForm):
     redactors = forms.ModelMultipleChoiceField(
-        quesryset=get_user_model().objects.all(),
+        queryset=get_user_model().objects.all(),
         widget=forms.CheckboxSelectMultiple,
         required=False,
     )
