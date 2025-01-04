@@ -1,3 +1,5 @@
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render
 from django.views import generic
 
@@ -5,6 +7,7 @@ from catalog.models import Redactor, Topic, Newspaper
 
 
 # Create your views here.
+@login_required
 def index(request):
     """View function for home page."""
 
@@ -24,7 +27,7 @@ def index(request):
     return render(request, "catalog/index.html", context=context)
 
 
-class TopicListView(generic.ListView):
+class TopicListView(LoginRequiredMixin, generic.ListView):
     model = Topic
     queryset = Topic.objects.all().order_by('name')
     paginate_by = 5

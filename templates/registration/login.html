@@ -7,12 +7,12 @@
 
 {% block content %}
 
-{% if form.errors %}
+<h1>Login</h1>
+  
+  {% if form.errors %}
   <p>Your username and password didn't match. Please try again.</p>
 {% endif %}
-
-<h1>Login</h1>
-
+  
 {% if next %}
   <p>Please log in to see this page.</p>
 {% endif %}
