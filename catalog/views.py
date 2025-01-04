@@ -12,10 +12,14 @@ def index(request):
     num_topics = Topic.objects.all().count()
     num_newspapers = Newspaper.objects.all().count()
 
+    num_visits = request.session.get("num_visits", 0)
+    request.session["num_visits"] = num_visits + 1
+
     context = {
         'num_redactors': num_redactors,
         'num_topics': num_topics,
         'num_newspapers': num_newspapers,
+        'num_visits': num_visits,
     }
     return render(request, "catalog/index.html", context=context)
 
