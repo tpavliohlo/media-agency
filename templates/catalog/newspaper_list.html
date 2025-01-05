@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load crispy_forms_filters %}
 
 {% block content %}
   <h1>
@@ -7,12 +8,18 @@
       Create
     </a>
   </h1>
-
+  <br>
+  <form action="" method="get">
+    {{ search_form|crispy }}
+    <input type="submit" value="Search" class="btn btn-secondary">
+  </form>
+  <br>
   {% if newspaper_list %}
   	<table class="table">
     <tr>
       <th>ID</th>
       <th>Title</th>
+      <th>Topic</th>
       <th>Published date</th>
       <th>Update</th>
       <th>Delete</th>
@@ -22,6 +29,7 @@
       <tr>
         <td>{{ newspaper.id }}</td>
         <td>{{ newspaper.title }}</td>
+        <td>{{ newspaper.topic }}</td>
         <td>{{ newspaper.published_date }}</td>
         <td>
           <a href="{% url 'catalog:newspaper-update' pk=newspaper.id %}">
