@@ -1,12 +1,18 @@
 {% extends "base.html" %}
+{% load crispy_forms_filters %}
 
 {% block content %}
   <h1>List of redactors <a href="{% url 'catalog:redactor-create' %}" class="btn btn-primary link-to-page">Create</a>
   </h1>
-  
+  <br>
+  <form action="" method="get">
+    {{ search_form|crispy }}
+    <input type="submit" value="Search" class="btn btn-secondary">
+  </form>
+  <br>
   {% if redactor_list %}
   <table class="table">
-  <tr>u
+  <tr>
     <th>ID</th>
     <th>Username</th>
     <th>First name</th>
