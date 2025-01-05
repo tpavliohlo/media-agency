@@ -25,3 +25,39 @@ class RedactorCreationForm(UserCreationForm):
             "last_name",
             "years_of_experience"
         )
+
+
+class RedactorSearchForm(forms.Form):
+    username = forms.CharField(
+        max_length=255,
+        required=False,
+        widget=forms.TextInput(attrs={
+            "placeholder": "Search a driver by username",
+        })
+    )
+
+
+class NewspaperSearchForm(forms.Form):
+    title = forms.CharField(
+        max_length=255,
+        required=False,
+        label="",
+        widget=forms.TextInput(
+            attrs={
+                "placeholder": "Search a newspaper by title."
+            }
+        )
+    )
+
+
+class TopicSearchForm(forms.Form):
+    name = forms.CharField(
+        max_length=255,
+        required=False,
+        label="",
+        widget=forms.TextInput(
+            attrs={
+                "placeholder": "Search a topic by name."
+            }
+        )
+    )
