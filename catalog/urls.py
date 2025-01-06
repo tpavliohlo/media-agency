@@ -5,14 +5,16 @@ from catalog.views import (
     TopicListView,
     NewspaperListView,
     NewspaperDetailView,
-    RedactorListView, \
+    RedactorListView,
     RedactorDetailView,
     TopicCreateView,
     TopicUpdateView,
     TopicDeleteView,
     NewspaperCreateView,
-    NewspaperUpdateView, \
-    NewspaperDeleteView, RedactorCreateView, RedactorDeleteView
+    NewspaperUpdateView,
+    NewspaperDeleteView,
+    RedactorCreateView,
+    RedactorDeleteView
 )
 
 urlpatterns = [
