@@ -24,3 +24,8 @@ python manage.py runserver
 * Authentication functionality for Redactor/User.
 * Managing topics and newspapers directly from website interface.
 * Admin panel for advanced managing.
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> cb138c1 (create test_models.py and test_views.py)
