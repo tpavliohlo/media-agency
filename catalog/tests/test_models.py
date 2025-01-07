@@ -83,5 +83,3 @@ class TestNewspaper(TestCase):
     def test_newspaper_topic(self):
         """Test the ForeignKey relationship between Newspaper and Topic"""
         self.assertEqual(self.newspaper.topic.name, "Technology")
-
-
