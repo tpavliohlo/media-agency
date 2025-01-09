@@ -7,8 +7,10 @@ Django project for managing topics and redactors in Newspapers
 Link to project: https://media-agency.onrender.com
 
 To test the project, use the next credentials:
+```shell
 login: admin.user
 password: 1qazcde3
+```
 
 ## Installation
 
